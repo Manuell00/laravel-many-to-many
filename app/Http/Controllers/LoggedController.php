@@ -51,12 +51,27 @@ class LoggedController extends Controller
     public function create()
     {
         $types = Type::all();
+        $users = User::all();
 
-        return view('create', compact('types'));
+        return view('create', compact('types', 'users'));
     }
 
     public function store(Request $request)
     {
+        $request->validate([
+            'project_name' => 'required|string|max:64',
+            'description' => 'nullable|string',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date',
+            'status' => 'required|string|max:64',
+            'budget' => 'required|integer',
+            'progress' => 'required|integer',
+            'image' => 'nullable|string',
+            'type_id' => 'required|exists:types,id',
+            'user_id' => 'nullable|exists:users,id',
+        ]);
+
+
         $data = $request->all();
 
         // dd($data);

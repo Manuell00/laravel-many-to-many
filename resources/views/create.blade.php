@@ -104,12 +104,24 @@
                     </div>
                 </div>
 
+
+                <div class="row justify-content-center my-4">
+                    <div class="col-md-6">
+                        <label class="my-2" for="user_id"><b>User id :</b></label>
+                        <br>
+                        <input class="text-center form-control" type="number" name="user_id"
+                            value="@if(Auth::check()){{ Auth::user()->id }}@else{{ null }}@endif">
+                    </div>
+                </div>
                 
+
                 <div class="row justify-content-center my-4">
                     <div class="col-3">
                         <input class="btn btn-primary" type="submit">
                     </div>
                 </div>
+
+                
 
 
             </form>
