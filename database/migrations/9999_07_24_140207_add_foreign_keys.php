@@ -42,6 +42,12 @@ return new class extends Migration
                 // Nome tabella
                 ->on('users');
         });
+
+        // Stessa cosa dei precedenti ma più rapido con constrained
+        Schema::table('project_technology', function (Blueprint $table) {
+            $table->foreignId('project_id')->constrained();
+            $table->foreignId('technology_id')->constrained();
+        });
     }
 
     /**
@@ -56,7 +62,7 @@ return new class extends Migration
             // Inserisco il nome della relazione (si vede su sql)
             $table->dropForeign('projects_user_id_foreign');
 
-            // Elimino la colonna type_id
+            // Elimino la colonna user_id
             $table->dropColumn('user_id');
         });
 
@@ -67,6 +73,16 @@ return new class extends Migration
 
             // Elimino la colonna type_id
             $table->dropColumn('type_id');
+        });
+
+        Schema::table('project_technology', function (Blueprint $table) {
+            $table->dropForeign('project_technology_project_id_foreign');
+            $table->dropForeign('project_technology_technology_id_foreign');
+
+
+            $table->dropColumn('project_id');
+
+            $table->dropColumn('technology_id');
         });
     }
 };
