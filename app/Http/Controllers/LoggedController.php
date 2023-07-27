@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 // Importo il model
 use App\Models\Project;
 use App\Models\Type;
+use App\Models\User;
 
 
 class LoggedController extends Controller
@@ -29,7 +30,7 @@ class LoggedController extends Controller
     {
         $search = $request->input('searchId');
 
-        $projects = Project::where('id', $search)->get();
+        $projects = Project::where('user_id', $search)->get();
 
         // dd($projects);
 

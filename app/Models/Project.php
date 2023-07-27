@@ -20,7 +20,8 @@ class Project extends Model
         'progress',
         'image',
 
-        'type_id'
+        'type_id',
+        'user_id'
     ];
 
 

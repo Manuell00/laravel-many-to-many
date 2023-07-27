@@ -17,19 +17,6 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $users =  User::factory()->count(10)->make();
-
-        // Ciclo sui record degli user, classico per i ONE-TO-MANY
-        foreach ($users as $user) {
-
-            // Creo una variabile project per recuperare una tipologia randomica tra quelle già presenti nel db
-            $project = Project::inRandomOrder()->first();
-
-            // Prendo il relativo id e lo salvo nella chiave esterna
-            $user->project_id = $project->id;
-
-            // Salvo
-            $user->save();
-        }
+        $users =  User::factory()->count(10)->create();
     }
 }

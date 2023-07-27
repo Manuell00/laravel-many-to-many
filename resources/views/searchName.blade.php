@@ -28,7 +28,7 @@
                 <form action="{{ route('project.searchId') }}" method="GET" class="my-3 w-25">
                     @csrf
                     <div class="input-group">
-                        <input type="number" name="searchId" class="form-control" placeholder="Search by ID" aria-label="Search by ID">
+                        <input type="number" name="searchId" class="form-control" placeholder="Search projects by User ID" aria-label="Search by ID">
                         <button type="submit" class="btn btn-primary">Search</button>
                     </div>
                 </form>
