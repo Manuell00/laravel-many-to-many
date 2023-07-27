@@ -1,0 +1,17 @@
+@import '~bootstrap/scss/bootstrap';
+
+// Importo gli stili delle mie pagine
+@import 'components/edit';
+@import 'components/show';
+@import 'components/home';
+
+
+.logo_laravel{
+    width: 50px;
+    height: 50px;
+
+    img{
+        height: 100%;
+        width: 100%;
+    }
+}

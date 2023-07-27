@@ -1,0 +1,50 @@
+// Stile generale per tutte le form control
+.form-control {
+    appearance: none;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    width: 100%;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    // Stile per le form control al focus
+    &:focus {
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+    // Stile per le form control disabilitate
+    &:disabled {
+        background-color: #e9ecef;
+        opacity: 1;
+    }
+}
+
+// Stile per il campo descrizione
+.description-textarea {
+    resize: vertical; /* Per consentire all'utente di ridimensionare verticalmente il campo */
+    height: 150px; /* Altezza iniziale del campo descrizione */
+}
+
+// Stile per la casella di selezione
+.form-select {
+    appearance: none;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    width: 100%;
+
+    // Stile per le opzioni della casella di selezione
+    option {
+        background-color: #fff;
+        color: #495057;
+    }
+}
