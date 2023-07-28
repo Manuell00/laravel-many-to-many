@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 // Importo il model
 use App\Models\Project;
@@ -80,7 +82,7 @@ class LoggedController extends Controller
 
         $project = Project::create($data);
 
-        $project->technologies()->attach($data['technologies']);
+        // $project->technologies()->attach($data['technologies']);
 
         return redirect()->route('project.show', $project->id);
     }
@@ -108,8 +110,22 @@ class LoggedController extends Controller
     {
         $project = Project::findOrFail($id);
 
+        // Trova tutti i record correlati nella tabella "project_technology"
+        $projectTechnologies = DB::table('project_technology')
+            ->where('project_id', $id)
+            ->get();
+
+        // Elimina i record correlati dalla tabella "project_technology"
+        foreach ($projectTechnologies as $projectTechnology) {
+            DB::table('project_technology')
+                ->where('id', $projectTechnology->id)
+                ->delete();
+        }
+
+        // Elimina il progetto dalla tabella "projects"
         $project->delete();
 
+        // Effettua il reindirizzamento
         return redirect()->route('project.index');
     }
 }
