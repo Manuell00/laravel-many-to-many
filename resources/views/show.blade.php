@@ -83,16 +83,20 @@
                             <span class="label">Technologies:</span>
                         </div>
                         <div class="col-md-6">
-                            <ol class="list-unstyled">
+                            @if ($project->technologies->count() > 0)
+                            <ul>
                                 @foreach ($project->technologies as $technology)
-                                    <li>{{$technology -> name}}
+                                    @if ($technology->name)
+                                        <li>{{ $technology->name }}</li>
                                         @if (!$loop->last)
                                             <span>,</span>
                                         @endif
-                                    </li>
-                                    
+                                    @endif
                                 @endforeach
-                            </ol>
+                            </ul>
+                        @else
+                            <p>The project has no one technology</p>
+                        @endif
                         </div>
                     </div>
 
