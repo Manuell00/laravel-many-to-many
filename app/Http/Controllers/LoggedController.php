@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Type;
 use App\Models\User;
+use App\Models\Technology;
 
 
 class LoggedController extends Controller
@@ -52,24 +53,25 @@ class LoggedController extends Controller
     {
         $types = Type::all();
         $users = User::all();
+        $technologies = Technology::all();
 
-        return view('create', compact('types', 'users'));
+        return view('create', compact('types', 'users', 'technologies'));
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'project_name' => 'required|string|max:64',
-            'description' => 'nullable|string',
-            'start_date' => 'required|date',
-            'end_date' => 'required|date|after:start_date',
-            'status' => 'required|string|max:64',
-            'budget' => 'required|integer',
-            'progress' => 'required|integer',
-            'image' => 'nullable|string',
-            'type_id' => 'required|exists:types,id',
-            'user_id' => 'nullable|exists:users,id',
-        ]);
+        // $request->validate([
+        //     'project_name' => 'required|string|max:64',
+        //     'description' => 'nullable|string',
+        //     'start_date' => 'required|date',
+        //     'end_date' => 'required|date|after:start_date',
+        //     'status' => 'required|string|max:64',
+        //     'budget' => 'required|integer',
+        //     'progress' => 'required|integer',
+        //     'image' => 'nullable|string',
+        //     'type_id' => 'required|exists:types,id',
+        //     'user_id' => 'nullable|exists:users,id',
+        // ]);
 
 
         $data = $request->all();
@@ -77,6 +79,8 @@ class LoggedController extends Controller
         // dd($data);
 
         $project = Project::create($data);
+
+        $project->technologies()->attach($data['technologies']);
 
         return redirect()->route('project.show', $project->id);
     }

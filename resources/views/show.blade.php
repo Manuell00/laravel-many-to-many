@@ -84,13 +84,14 @@
                         </div>
                         <div class="col-md-6">
                             @if ($project->technologies->count() > 0)
-                            <ul>
+                            <ul class="list-unstyled">
                                 @foreach ($project->technologies as $technology)
                                     @if ($technology->name)
-                                        <li>{{ $technology->name }}</li>
-                                        @if (!$loop->last)
-                                            <span>,</span>
-                                        @endif
+                                        <li>{{ $technology->name }}
+                                            @if (!$loop->last)
+                                                <span>,</span>
+                                            @endif
+                                        </li>
                                     @endif
                                 @endforeach
                             </ul>

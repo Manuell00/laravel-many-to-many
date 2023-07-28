@@ -107,12 +107,30 @@
 
                 <div class="row justify-content-center my-4">
                     <div class="col-md-6">
+
+                        {{-- Inserisco le checkbox --}}
+                        @foreach ($technologies as $technology)
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{$technology->id}}
+                                " name="technologies[]" id="technology-{{$technology->id}}">
+                                <label class="form-check-label" for="technology-{{$technology->id}}">
+                                    {{$technology->name}}
+                                </label>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                <div class="row justify-content-center my-4">
+                    <div class="col-md-6">
                         <label class="my-2" for="user_id"><b>User id :</b></label>
                         <br>
                         <input class="text-center form-control" type="number" name="user_id"
                             value="@if(Auth::check()){{ Auth::user()->id }}@else{{ null }}@endif">
                     </div>
                 </div>
+
+
                 
 
                 <div class="row justify-content-center my-4">
