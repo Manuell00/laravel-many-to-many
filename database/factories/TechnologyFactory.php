@@ -18,7 +18,7 @@ class TechnologyFactory extends Factory
     {
         return [
             'name' => fake()->words(3, true),
-            'paragraph' => fake()->paragraph(),
+            'description' => fake()->paragraph(),
         ];
     }
 }
