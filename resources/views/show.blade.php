@@ -80,6 +80,24 @@
 
                     <div class="row justify-content-center my-3">
                         <div class="col-md-3 font-weight-bold">
+                            <span class="label">Technologies:</span>
+                        </div>
+                        <div class="col-md-6">
+                            <ol class="list-unstyled">
+                                @foreach ($project->technologies as $technology)
+                                    <li>{{$technology -> name}}
+                                        @if (!$loop->last)
+                                            <span>,</span>
+                                        @endif
+                                    </li>
+                                    
+                                @endforeach
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center my-3">
+                        <div class="col-md-3 font-weight-bold">
                             <span class="label">Type of project:</span>
                         </div>
                         <div class="col-md-6">{{ $project->type->type_name }}</div>

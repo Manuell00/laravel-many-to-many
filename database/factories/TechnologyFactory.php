@@ -17,7 +17,9 @@ class TechnologyFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->words(3, true),
+            'name' => fake()->unique()->randomElement([
+                'Java', 'PHP', 'C++', 'C#', 'python', 'Javascript', 'Bash', 'HTML', 'CSS', 'SQL'
+            ]),
             'description' => fake()->paragraph(),
         ];
     }

@@ -24,7 +24,7 @@ class TypeFactory extends Factory
                 'Laravel',
                 'JS',
                 'AI',
-                'Python',
+                'Quasar',
                 'React',
                 'Vite',
                 'Vue'

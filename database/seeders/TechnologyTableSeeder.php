@@ -25,7 +25,7 @@ class TechnologyTableSeeder extends Seeder
         foreach ($technologies as $technology) {
 
             // Prendo dai 2 ai 4 record della tabella progetti
-            $projects = Project::inRandomOrder()->limit(random_int(2, 4))->get();
+            $projects = Project::inRandomOrder()->limit(random_int(4, 6))->get();
 
             // Vado a compilare la tabella ponte
             $technology->projects()->attach($projects);
