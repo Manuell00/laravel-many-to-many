@@ -57,7 +57,7 @@
                                     <form action="{{ route('project.edit', $project->id) }}" method="POST">
                                         @csrf
                                         @method('PUT')
-                                        <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-gear"></i></button>
+                                        <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-pen-to-square"></i></button>
                                     </form>
                                 </div>
     
