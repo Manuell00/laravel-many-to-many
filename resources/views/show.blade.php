@@ -31,7 +31,7 @@
                         </div>
                         <div class="col-md-6" id="main_picture">
                             <div class="image-container">
-                                <img src="{{ $project->main_picture }}" alt="client picture">
+                                <img src="{{ asset('storage/' . $project->main_picture)}}" alt="client picture">
                             </div>
                         </div>
                     </div>

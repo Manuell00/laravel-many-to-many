@@ -8,18 +8,21 @@
 
 }
 
-#photo {
+#main_picture {
     display: flex;
     align-items: center;
     justify-content: center;
 
     .image-container {
-        width: 200px;
-        height: 200px;
+        width: 100px;
+        height: 100px;
+        
 
         img {
             width: 100%;
             height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
     }
