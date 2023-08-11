@@ -31,7 +31,13 @@
                         </div>
                         <div class="col-md-6" id="main_picture">
                             <div class="image-container">
-                                <img src="{{ asset('storage/' . $project->main_picture)}}" alt="client picture">
+                                @if ($project->main_picture)
+                                    <img src="{{ asset('storage/' . $project->main_picture)}}" alt="client picture">
+
+                                {{-- Inserisco un'immagine di default nel caso  non venga caricata --}}
+                                @else
+                                    <img src="{{ asset('storage/images/proj.png')}}" alt="client default image">
+                                @endif
                             </div>
                         </div>
                     </div>

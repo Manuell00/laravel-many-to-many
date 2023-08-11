@@ -62,7 +62,7 @@ class LoggedController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = $request->validate([
             'project_name' => 'required|string|max:64',
             'description' => 'nullable|string',
             'start_date' => 'required|date',
@@ -72,17 +72,19 @@ class LoggedController extends Controller
             'progress' => 'required|integer',
             'type_id' => 'required|exists:types,id',
             'user_id' => 'nullable|exists:users,id',
-            'main_picture' => 'required|file|image|max:2048'
+            'main_picture' => 'nullable|image|max:2048'
         ]);
 
 
         $data = $request->all();
 
-        // Creo una variabile per l'inserimento dell'img da client
-        $img_path = Storage::put('uploads', $data['main_picture']);
-
-        // Carico ora il link dell'img nel record main_picture di users
-        $data['main_picture'] = $img_path;
+        // Verifica se è stata fornita un'immagine
+        if ($request->hasFile('main_picture')) {
+            $img_path = Storage::put('uploads', $data['main_picture']);
+            $data['main_picture'] = $img_path;
+        } else {
+            $data['main_picture'] = null; // Nessun'immagine fornita, impostiamo a null
+        }
 
         // dd($data);
 
@@ -90,7 +92,7 @@ class LoggedController extends Controller
 
         $project->technologies()->attach($data['technologies']);
 
-        return redirect()->route('project.show', $project->id);
+        return redirect()->route('project.show', $project->id)->withErrors($validator);
     }
 
     // EDIT
