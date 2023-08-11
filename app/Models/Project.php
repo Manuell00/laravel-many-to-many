@@ -18,10 +18,12 @@ class Project extends Model
         'status',
         'budget',
         'progress',
-        'image',
 
         'type_id',
-        'user_id'
+        'user_id',
+        'main_picture'
+
+
     ];
 
 

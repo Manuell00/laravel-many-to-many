@@ -27,11 +27,11 @@
 
                     <div class="row justify-content-center my-3">
                         <div class="col-md-3 font-weight-bold">
-                            <span class="label">Image:</span>
+                            <span class="label">Main picture:</span>
                         </div>
-                        <div class="col-md-6" id="photo">
+                        <div class="col-md-6" id="main_picture">
                             <div class="image-container">
-                                <img src="{{ $project->image }}" alt="ImmagineRand">
+                                <img src="{{ $project->main_picture }}" alt="client picture">
                             </div>
                         </div>
                     </div>

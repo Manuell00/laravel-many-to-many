@@ -11,7 +11,7 @@ use App\Models\Project;
 use App\Models\Type;
 use App\Models\User;
 use App\Models\Technology;
-
+use Illuminate\Support\Facades\Storage;
 
 class LoggedController extends Controller
 {
@@ -70,7 +70,6 @@ class LoggedController extends Controller
             'status' => 'required|string|max:64',
             'budget' => 'required|integer',
             'progress' => 'required|integer',
-            'image' => 'nullable|string',
             'type_id' => 'required|exists:types,id',
             'user_id' => 'nullable|exists:users,id',
             'main_picture' => 'required|file|image|max:2048'
@@ -78,6 +77,12 @@ class LoggedController extends Controller
 
 
         $data = $request->all();
+
+        // Creo una variabile per l'inserimento dell'img da client
+        $img_path = Storage::put('uploads', $data['main_picture']);
+
+        // Carico ora il link dell'img nel record main_picture di users
+        $data['main_picture'] = $img_path;
 
         // dd($data);
 

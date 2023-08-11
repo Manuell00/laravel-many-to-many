@@ -24,7 +24,8 @@ return new class extends Migration
             $table->string('status', 64);
             $table->integer('budget');
             $table->integer('progress');
-            $table->text('image')->nullable();
+            $table->string('main_picture')->nullable();
+
 
 
 

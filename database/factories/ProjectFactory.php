@@ -28,7 +28,6 @@ class ProjectFactory extends Factory
             'status' => fake()->randomElement(['In progress', 'Final_stages', 'Pending']),
             'budget' => fake()->randomFloat(2, 1000, 100000),
             'progress' => fake()->numberBetween(0, 100),
-            'image' => "https://picsum.photos/id/{$randomNumber}//5000/3333"
         ];
     }
 }

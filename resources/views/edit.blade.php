@@ -29,16 +29,6 @@
 
                 <div class="row justify-content-center my-4">
                     <div class="col-md-6">
-                        <label class="my-2" for="image"><b>Image Link :</b></label>
-                        <br>
-                        <input class="text-center form-control" type="text" name="image" value="{{$project -> image}}">
-                    </div>
-                </div>
-
-                
-
-                <div class="row justify-content-center my-4">
-                    <div class="col-md-6">
                         <label class="my-2" for="description"><b>description :</b></label>
                         <br>
                         <textarea class="form-control description-textarea" name="description">{{ $project->description }}</textarea>
