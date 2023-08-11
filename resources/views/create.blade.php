@@ -24,6 +24,14 @@
                         <label class="my-2" for="main_picture"><b>main picture :</b></label>
                         <br>
                         <input class="text-center form-control" type="file" name="main_picture" id="main_picture">
+
+                        {{-- Inserisco l'eventuale errore --}}
+                        @if ($errors->has('main_picture'))
+                            <br>
+                            <div class="alert alert-danger">
+                                {{$errors->first('main_picture')}}
+                            </div>
+                        @endif
                     </div>
                 </div>
 
@@ -32,6 +40,14 @@
                         <label class="my-2" for="project_name"><b>project_name :</b></label>
                         <br>
                         <input class="text-center form-control" type="text" name="project_name">
+
+                        {{-- Inserisco l'eventuale errore --}}
+                        @if ($errors->has('project_name'))
+                            <br>
+                            <div class="alert alert-danger">
+                                {{$errors->first('project_name')}}
+                            </div>
+                         @endif
                     </div>
                 </div>
 
@@ -43,6 +59,13 @@
                         <label class="my-2" for="description"><b>description :</b></label>
                         <br>
                         <textarea class="form-control description-textarea" name="description"></textarea>
+                        {{-- Inserisco l'eventuale errore --}}
+                        @if ($errors->has('description'))
+                            <br>
+                            <div class="alert alert-danger">
+                                {{$errors->first('description')}}
+                            </div>
+                        @endif
                     </div>
                 </div>
                 
@@ -53,18 +76,28 @@
                         <label for="start_date"><b>start_date :</b></label>
                         <br>
                         <input class="text-center form-control " type="date" name="start_date">
+                        {{-- Inserisco l'eventuale errore --}}
+                        @if ($errors->has('start_date'))
+                            <br>
+                            <div class="alert alert-danger">
+                                {{$errors->first('start_date')}}
+                            </div>
+                        @endif
                     </div>
 
                     <div class="col-md-3">
                         <label for="end_date"><b>end_date :</b></label>
                         <br>
                         <input class="text-center form-control" type="date" name="end_date">
+                        {{-- Inserisco l'eventuale errore --}}
+                        @if ($errors->has('end_date'))
+                            <br>
+                            <div class="alert alert-danger">
+                                {{$errors->first('end_date')}}
+                            </div>
+                        @endif
+                        
                     </div>
-                </div>
-
-
-                <div class="row justify-content-center my-4">
-                   
                 </div>
 
 
@@ -73,6 +106,13 @@
                         <label class="my-2" for="status"><b>status :</b></label>
                         <br>
                         <input class="text-center form-control" type="text" name="status">
+                        {{-- Inserisco l'eventuale errore --}}
+                        @if ($errors->has('status'))
+                            <br>
+                            <div class="alert alert-danger">
+                                {{$errors->first('status')}}
+                            </div>
+                        @endif
                     </div>
                 </div>
 
@@ -81,6 +121,13 @@
                         <label class="my-2" for="budget"><b>budget :</b></label>
                         <br>
                         <input class="text-center form-control" type="number" name="budget">
+                        {{-- Inserisco l'eventuale errore --}}
+                        @if ($errors->has('budget'))
+                            <br>
+                            <div class="alert alert-danger">
+                                {{$errors->first('budget')}}
+                            </div>
+                         @endif
                     </div>
                 </div>
 
@@ -89,6 +136,13 @@
                         <label class="my-2" for="progress"><b>progress :</b></label>
                         <br>
                         <input class="text-center form-control" type="number" name="progress">
+                        {{-- Inserisco l'eventuale errore --}}
+                        @if ($errors->has('progress'))
+                            <br>
+                            <div class="alert alert-danger">
+                                {{$errors->first('progress')}}
+                            </div>
+                        @endif
                     </div>
                 </div>
 
@@ -139,21 +193,6 @@
                         <input class="btn btn-primary" type="submit">
                     </div>
                 </div>
-
-                {{-- Inserisco errori inserimento dati --}}
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
-                
-
-
             </form>
         @endauth
 
