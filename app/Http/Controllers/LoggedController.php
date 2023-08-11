@@ -73,7 +73,7 @@ class LoggedController extends Controller
             'image' => 'nullable|string',
             'type_id' => 'required|exists:types,id',
             'user_id' => 'nullable|exists:users,id',
-            'main_picture' => 'required|file|image'
+            'main_picture' => 'required|file|image|max:2048'
         ]);
 
 
