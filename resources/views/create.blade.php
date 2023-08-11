@@ -13,11 +13,19 @@
          
             {{-- Inserisco il form --}}
 
-            <form class="bg-light p-4 mb-4" action="{{route('project.store')}}" method="POST">
+            <form class="bg-light p-4 mb-4" action="{{route('project.store')}}" method="POST" enctype="multipart/form-data">
 
-                
                 @csrf
                 @method("POST")
+                
+
+                <div class="row justify-content-center my-4">
+                    <div class="col-md-6">
+                        <label class="my-2" for="main_picture"><b>Label for main picture :</b></label>
+                        <br>
+                        <input class="text-center form-control" type="file" name="main_picture" id="main_picture">
+                    </div>
+                </div>
 
                 <div class="row justify-content-center my-4">
                     <div class="col-md-6">
