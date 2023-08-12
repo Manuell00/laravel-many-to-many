@@ -56,6 +56,8 @@ Route::delete('/delete/{id}', [LoggedController::class, 'delete'])
 
 
 
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('home');
@@ -64,6 +66,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Creo la rotta per la update del profilo
+    Route::post('/updateImage', [LoggedController::class, 'updateImage'])->name('profile.updateImage');
 });
 
 require __DIR__ . '/auth.php';
