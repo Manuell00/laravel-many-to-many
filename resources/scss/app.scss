@@ -15,3 +15,27 @@
         width: 100%;
     }
 }
+
+// Stile generale pagina 
+#app {
+    background: linear-gradient(to bottom, #cdd8dc, #a4b4b9); // Gradiente da un azzurro-grigio medio ad un azzurro-grigio più scuro
+    min-height: 100vh;
+    height: 100%;
+
+    .navbar {
+        background-color: #1c3d58; // Blu navy
+        border: none;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); 
+    }
+    
+    .container {
+        background-color: #f2efeb; // Crema un po' più scuro
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    }
+}
+
+
+
+

@@ -5,7 +5,7 @@
 
         {{-- Versione UTENTE --}}
         @auth
-            <h1 class="my-3 display-5 font-weight-bold text-primary">Welcome : 
+            <h1 class="my-3 display-5">Welcome : 
                 <span class="capitalize">{{Auth::user()->name}}</span>
             </h1>
 
@@ -13,7 +13,7 @@
 
             <div class="row justify-content-center">
 
-                <h3 class="my-4 display-6 font-weight-bold text-info">Find Your Project :</h3>
+                <h3 class="my-4 display-6 ">Find Your Project :</h3>
 
                 {{-- Search form name--}}
                 <form action="{{route('project.searchName')}}" method="GET" class="my-3 w-50">
@@ -44,7 +44,7 @@
             <div class="project-container">
 
                 {{-- List --}}
-               <h3 class="my-4 display-6 font-weight-bold text-info">Project List :
+               <h3 class="my-4 display-6 ">Project List :
                    <span class="pl-3">
                        @if ($showAll)
                           <a href="?showAll=false" type="button" class="btn-custom">
@@ -94,7 +94,7 @@
             {{-- Chiusura del container dei progetti --}}
 
              {{-- Add project --}}
-             <h3 class="my-4 display-6 font-weight-bold text-info">Add new project</h3>
+             <h3 class="my-4 display-6 ">Add new project</h3>
              <a id="add-btn" class="btn btn-primary my-3" href="{{ route('project.create') }}">+</a>
 
         @endauth
