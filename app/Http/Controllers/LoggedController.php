@@ -131,14 +131,29 @@ class LoggedController extends Controller
         return view("edit", compact("project", "types"));
     }
 
+
     public function update(Request $request, $id)
     {
         $data = $request->all();
-
         $project = Project::findOrFail($id);
+
+        if ($request->hasFile('main_picture')) {
+            // Elimina l'immagine vecchia se esiste
+            if ($project->main_picture) {
+                Storage::delete($project->main_picture);
+            }
+
+            // Salva la nuova immagine e ottieni il percorso
+            $imagePath = Storage::put('public/uploads', $request->file('main_picture'));
+
+            // Rimuovi il prefisso "public/" dal percorso dell'immagine
+            $data['main_picture'] = str_replace('public/', '', $imagePath);
+        }
+
         $project->update($data);
         return redirect()->route('project.show', $project->id);
     }
+
 
     // DELETE
     public function delete($id)

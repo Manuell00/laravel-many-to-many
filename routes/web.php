@@ -55,9 +55,6 @@ Route::delete('/delete/{id}', [LoggedController::class, 'delete'])
     ->name('project.delete');
 
 
-
-
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('home');

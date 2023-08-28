@@ -13,7 +13,7 @@
          
             {{-- Inserisco il form --}}
 
-            <form class="bg-light p-4 mb-4" action="{{route('project.update', $project->id)}}" method="POST">
+            <form class="bg-light p-4 mb-4" action="{{route('project.update', $project->id)}}" method="POST" enctype="multipart/form-data">
 
                 
                 @csrf
