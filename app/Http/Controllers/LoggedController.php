@@ -144,7 +144,7 @@ class LoggedController extends Controller
             }
 
             // Salva la nuova immagine e ottieni il percorso
-            $imagePath = Storage::put('public/uploads', $request->file('main_picture'));
+            $imagePath = Storage::put('images/uploads', $request->file('main_picture'));
 
             // Rimuovi il prefisso "public/" dal percorso dell'immagine
             $data['main_picture'] = str_replace('public/', '', $imagePath);

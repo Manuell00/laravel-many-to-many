@@ -19,6 +19,23 @@
                 @method("POST")
                 
 
+                
+                <div class="row justify-content-center my-4">
+                    <div class="col-md-6">
+                        <label class="my-2" for="project_name"><b>project_name :</b></label>
+                        <br>
+                        <input class="text-center form-control" type="text" name="project_name">
+                        
+                        {{-- Inserisco l'eventuale errore --}}
+                        @if ($errors->has('project_name'))
+                        <br>
+                        <div class="alert alert-danger">
+                            {{$errors->first('project_name')}}
+                        </div>
+                        @endif
+                    </div>
+                </div>
+                
                 <div class="row justify-content-center my-4">
                     <div class="col-md-6">
                         <label class="my-2" for="main_picture"><b>main picture :</b></label>
@@ -34,23 +51,6 @@
                         @endif
                     </div>
                 </div>
-
-                <div class="row justify-content-center my-4">
-                    <div class="col-md-6">
-                        <label class="my-2" for="project_name"><b>project_name :</b></label>
-                        <br>
-                        <input class="text-center form-control" type="text" name="project_name">
-
-                        {{-- Inserisco l'eventuale errore --}}
-                        @if ($errors->has('project_name'))
-                            <br>
-                            <div class="alert alert-danger">
-                                {{$errors->first('project_name')}}
-                            </div>
-                         @endif
-                    </div>
-                </div>
-
                 
                 
                 

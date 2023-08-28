@@ -32,7 +32,7 @@
                         <div class="col-md-6" id="main_picture">
                             <div class="image-container">
                                 @if ($project->main_picture)
-                                    <img src="{{ asset('storage/images/' . $project->main_picture)}}" alt="project image ">
+                                    <img src="{{ asset('storage/' . $project->main_picture)}}" alt="project image ">
 
                                 {{-- Inserisco un'immagine di default nel caso  non venga caricata --}}
                                 @else

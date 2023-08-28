@@ -35,19 +35,19 @@
                         <br>
                         <input class="form-control" type="file" name="main_picture" accept="image/*">
                     </div>
+                </div>
 
-                    
 
-                    <div class="pt-3">
-                        @if ($project->main_picture)
-                            <img src="{{ asset('storage/' . $project->main_picture) }}" alt="Main project image" class="img-fluid mb-3">
-                        @else
-                            <img src="{{ asset('storage/images/proj.png') }}" alt="Default project image" class="img-fluid mb-3">
-                        @endif
+                <div class="row justify-content-center my-4">
+                    <div class="col-md-5 text-center" id="main_picture">
+                        <div class="image-container">
+                            @if ($project->main_picture)
+                                <img src="{{ asset('storage/' . $project->main_picture) }}" alt="Main project image" class="img-fluid mb-3">
+                            @else
+                                <img src="{{ asset('storage/images/proj.png') }}" alt="Default project image" class="img-fluid mb-3">
+                            @endif
+                        </div>
                     </div>
-
-                    
-                    
                 </div>
                 
 
