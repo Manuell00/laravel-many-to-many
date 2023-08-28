@@ -27,6 +27,31 @@
                     </div>
                 </div>
 
+
+                {{-- Modifica della main_picture del project --}}
+                <div class="row justify-content-center my-4">
+                    <div class="col-md-6">
+                        <label class="my-2" for="main_picture"><b>Main picture:</b></label>
+                        <br>
+                        <input class="form-control" type="file" name="main_picture" accept="image/*">
+                    </div>
+
+                    
+
+                    <div class="pt-3">
+                        @if ($project->main_picture)
+                            <img src="{{ asset('storage/' . $project->main_picture) }}" alt="Main project image" class="img-fluid mb-3">
+                        @else
+                            <img src="{{ asset('storage/images/proj.png') }}" alt="Default project image" class="img-fluid mb-3">
+                        @endif
+                    </div>
+
+                    
+                    
+                </div>
+                
+
+
                 <div class="row justify-content-center my-4">
                     <div class="col-md-6">
                         <label class="my-2" for="description"><b>description :</b></label>
