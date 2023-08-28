@@ -5,15 +5,12 @@
 
         {{-- Versione UTENTE --}}
         @auth
-        <div>
-            <h1 class="my-3 display-5 font-weight-bold text-primary">Welcome : {{Auth::user() -> name}}</h1>
-            <div class="border-top my-3"></div>
-            <h3 class="my-4 display-6 font-weight-bold text-info" style="font-size: 1.5rem;">Create a new project</h3>
-        </div>
+       
+            <h3 class="my-4 display-6" style="font-size: 1.5rem;">Create a new project</h3>
          
             {{-- Inserisco il form --}}
 
-            <form class="bg-light p-4 mb-4" action="{{route('project.store')}}" method="POST" enctype="multipart/form-data">
+            <form class="p-4 mb-4" action="{{route('project.store')}}" method="POST" enctype="multipart/form-data" id="create-container">
 
                 @csrf
                 @method("POST")
