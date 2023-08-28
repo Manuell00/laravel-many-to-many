@@ -12,6 +12,11 @@ use GuzzleHttp\Middleware;
 Route::get('/', [GuestController::class, 'index'])
     ->name("project.index");
 
+// Inserisco la Logged index
+Route::get('/', [LoggedController::class, 'index'])
+    ->middleware(['auth'])
+    ->name("project.index");
+
 // Inserisco la search name
 Route::get('/searchName', [LoggedController::class, 'searchName'])
     ->middleware(['auth'])

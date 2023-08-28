@@ -6,9 +6,7 @@
         {{-- Versione UTENTE --}}
         @auth
         <div>
-            <h1 class="my-3 display-5 font-weight-bold text-primary">Welcome : {{Auth::user() -> name}}</h1>
-            <div class="border-top my-3"></div>
-            <h3 class="my-4 display-6 font-weight-bold text-info" style="font-size: 1.5rem;">Modify your project</h3>
+            <h3 class="my-4 display-6 font-weight-bold text-info" style="font-size: 1.5rem;">Modify your project</h1>
         </div>
          
             {{-- Inserisco il form --}}

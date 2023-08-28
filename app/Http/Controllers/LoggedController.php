@@ -18,30 +18,19 @@ use Illuminate\Support\Facades\Storage;
 class LoggedController extends Controller
 {
 
-    // // UPDATE USER IMAGE
-    // public function updateImage(Request $request)
-    // {
-    //     // Ottieni l'utente autenticato
-    //     $user = Auth::user();
+    // INDEX
+    public function index(Request $request)
+    {
+        $showAll = $request->get('showAll') === 'true';
 
-    //     // Controlla se è stata fornita un'immagine
-    //     if ($request->hasFile('profile_image')) {
-    //         // Salva l'immagine e ottieni il percorso
-    //         $imagePath = Storage::put('uploads', $request->file('profile_image'));
+        if ($showAll) {
+            $projects = Project::all();
+        } else {
+            $projects = Project::take(10)->get();
+        }
 
-    //         // Aggiorna il campo profile_image dell'utente
-    //         $user->user_image = $imagePath;
-
-    //         // Salva le modifiche
-    //         $user->save();
-    //     } else {
-    //         // Output di debug
-    //         dd("No profile image provided.");
-    //     }
-
-    //     return redirect()->route('home');
-    // }
-
+        return view("home", compact("projects", "showAll"));
+    }
 
     // SEARCH NAME
     public function searchName(Request $request)

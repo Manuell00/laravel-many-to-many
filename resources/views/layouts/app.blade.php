@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Project Management</title>
 
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/8752/8752436.png">
 

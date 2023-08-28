@@ -6,8 +6,7 @@
         {{-- Versione UTENTE --}}
         @auth
             <div class="my-4">
-                <h1 class="display-5 font-weight-bold text-primary" style="text-transform :capitalize">Welcome: {{ Auth::user()->name }}</h1>
-                <div class="border-top my-3"></div>
+                
                 <h3 class="display-6 font-weight-bold text-info">Project details</h3>
 
                 <div class="bg-light p-4 rounded shadow-sm mt-4">
@@ -74,14 +73,14 @@
                         <div class="col-md-3 font-weight-bold">
                             <span class="label">Budget:</span>
                         </div>
-                        <div class="col-md-6">{{ $project->budget }}</div>
+                        <div class="col-md-6">{{ $project->budget }} $</div>
                     </div>
 
                     <div class="row justify-content-center my-3">
                         <div class="col-md-3 font-weight-bold">
                             <span class="label">Progress:</span>
                         </div>
-                        <div class="col-md-6">{{ $project->progress }}%</div>
+                        <div class="col-md-6">{{ $project->progress }} %</div>
                     </div>
 
                     <div class="row justify-content-center my-3">

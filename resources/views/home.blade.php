@@ -5,7 +5,10 @@
 
         {{-- Versione UTENTE --}}
         @auth
-            <h1 class="my-3 display-5 font-weight-bold text-primary">Welcome : {{Auth::user()->name}}</h1>
+            <h1 class="my-3 display-5 font-weight-bold text-primary">Welcome : 
+                <span class="capitalize">{{Auth::user()->name}}</span>
+            </h1>
+
             <div class="border-top my-3"></div>
 
             <div class="row justify-content-center">
@@ -27,7 +30,7 @@
                 <form action="{{ route('project.searchId') }}" method="GET" class="my-3 w-25">
                     @csrf
                     <div class="input-group">
-                        <input type="number" name="searchId" class="form-control" placeholder="Search projects by User ID" aria-label="Search by ID">
+                        <input type="number" name="searchId" class="form-control" placeholder="Search by User ID" aria-label="Search by ID">
                         <button type="submit" class="btn btn-primary">Search</button>
                     </div>
                 </form>
@@ -40,8 +43,21 @@
             {{-- Container dei progetti --}}
             <div class="project-container">
 
-                 {{-- List --}}
-                <h3 class="my-4 display-6 font-weight-bold text-info">Project List :</h3>
+                {{-- List --}}
+               <h3 class="my-4 display-6 font-weight-bold text-info">Project List :
+                   <span class="pl-3">
+                       @if ($showAll)
+                          <a href="?showAll=false" type="button" class="btn-custom">
+                           See less <i class="fa-solid fa-chevron-up"></i>
+                           </a>
+           
+                       @else
+                           <a href="?showAll=true" type="button" class="btn-custom">
+                               See more <i class="fa-solid fa-chevron-down"></i>
+                           </a>
+                       @endif
+                   </span>
+               </h3>
 
                 {{-- SHOW --}}
                 @foreach ($projects as $project)
@@ -50,7 +66,7 @@
                             <a href="{{ route('project.show', $project->id) }}">{{ $project->project_name }}</a>
                         </div>
 
-                        {{-- EDIT --}}
+                        {{-- EDIT e DELETE --}}
                         <div class="col-2">
                             <div class="row justify-content-center">
                                 <div class="col-3">
@@ -74,7 +90,8 @@
                     
                 @endforeach
 
-            </div> {{-- Chiusura del container dei progetti --}}
+            </div> 
+            {{-- Chiusura del container dei progetti --}}
 
              {{-- Add project --}}
              <h3 class="my-4 display-6 font-weight-bold text-info">Add new project</h3>
