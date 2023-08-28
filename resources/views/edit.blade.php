@@ -6,12 +6,12 @@
         {{-- Versione UTENTE --}}
         @auth
         <div>
-            <h3 class="my-4 display-6 font-weight-bold text-info" style="font-size: 1.5rem;">Modify your project</h1>
+            <h3 class="my-4 display-6" style="font-size: 1.5rem;">Modify your project</h1>
         </div>
          
             {{-- Inserisco il form --}}
 
-            <form class="bg-light p-4 mb-4" action="{{route('project.update', $project->id)}}" method="POST" enctype="multipart/form-data">
+            <form class=" p-4 mb-4" action="{{route('project.update', $project->id)}}" method="POST" enctype="multipart/form-data" id="edit-container">
 
                 
                 @csrf

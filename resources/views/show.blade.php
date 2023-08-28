@@ -7,11 +7,11 @@
         @auth
             <div class="my-4">
                 
-                <h3 class="display-6 font-weight-bold text-info">Project details</h3>
+                <h3 class="display-6">Project details</h3>
 
-                <div class="bg-light p-4 rounded shadow-sm mt-4">
+                <div class="p-4 mt-4" id="show-container">
                     <div class="row justify-content-center my-3">
-                        <div class="col-md-3 font-weight-bold">
+                        <div class="col-md-3">
                             <span class="label">Id:</span>
                         </div>
                         <div class="col-md-6">{{ $project->id }}</div>
